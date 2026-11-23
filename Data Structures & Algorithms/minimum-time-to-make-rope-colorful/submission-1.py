@@ -1,0 +1,28 @@
+class Solution:
+    def minCost(self, colors: str, neededTime: List[int]) -> int:
+        l, r = 0, 1
+        counter = 0
+
+        while r < len(colors):
+            if colors[l] == colors[r]:
+                if neededTime[l] < neededTime[r]:
+                    counter += neededTime[l]
+                    l = r
+                    r +=1 
+                else:
+                    counter += neededTime[r]
+                    r += 1
+            else:
+                l = r
+                r += 1
+
+        return counter
+                
+
+        
+        
+
+
+
+
+        pass
